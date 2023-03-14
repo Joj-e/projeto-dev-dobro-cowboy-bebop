@@ -1,0 +1,56 @@
+/* criando responsividade para o site, cada @media corresponde a um conjunto de alteração que o site terá pelo tamanho maximo da tela do dispositivo */
+@media (max-width: 1280px){
+    body{
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px){
+     .informacoes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .informacoes .descricao{
+        width: 60%;
+
+        text-align:center;
+    }
+}
+
+@media (max-width: 425px){
+    .informacoes .logo{
+        max-width: 300px;
+    }
+
+    .informacoes .descricao{
+        width: 100%;
+    }
+
+    .menu-lateral{
+        position: static;
+        min-height: auto;
+        /* faz com que o tamanho total do menu lateral se adapte ao conteúdo dentro dele*/
+        width:100%;
+        margin-top: 50px;
+    }
+
+    .menu-lateral ul{
+        display: flex;
+        flex-direction: row;
+    }
+    /* colocando os icones um do lado do outro por que a tela é muito pequena */
+    .conteudo{
+        min-height: 70vh;
+        
+        gap: 50px;
+    }
+    /* essa alteração foi feita para evitar rolagem em mais dispositivos*/
+
+    body{
+        padding:40px;
+    }
+    /* o padding foi necessário para retirar o logo do topo da página, pois ele estava grudado la*/
+}
+

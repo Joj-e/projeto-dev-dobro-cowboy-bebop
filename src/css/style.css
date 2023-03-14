@@ -1,0 +1,146 @@
+body{
+    font-family: 'Poppins', sans-serif;
+
+    max-width:1280px;
+    margin: 0 auto;
+}
+
+main::after{
+    /* criando o psseudoseletor que vai receber um gradiente para escurecer as imagens */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    content: '';
+    /* deixando vaio o conteúdo do novo pseudosseletor */
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+
+    z-index: -1;
+}
+
+.conteudo{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+
+    min-height: 100vh;
+}
+
+.informacoes .logo{
+    max-width: 350px;
+    margin-bottom: 80px;
+
+    filter: invert(1);
+    /* função do CSS que serve para inverter algo, o logo que era preto ficou branco*/
+}
+
+.informacoes .descricao{
+    width: 49%;
+
+    line-height: 30px;
+    /* alterando o tamanho da linha */
+
+    font-size:24px;
+    color: #ffffff;
+}
+
+.btns-carrossel{
+    /* background-color: red; */
+    /* cor placeholder, será removida mais tarde*/
+
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    /* dando um espaçamento de 20px entre os botões (gap é o espaço entre as linhas/colunas) */
+}
+
+.btns-carrossel .btn{
+    cursor:pointer;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+    border: 2px solid transparent;
+    border-color: #ffffff;
+}
+
+.btns-carrossel .btn.selecionado{
+    /* Dando a cor ao botão que possui a classe btn e selecionado */
+    background-color: #1b8346;
+}
+
+
+.menu-lateral{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 80px;
+    min-height: 100vh;
+}
+
+.menu-lateral ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* toda essa parte foi feita para darmos um espaçamento entre os icones*/
+}
+
+.menu-lateral .icone{
+    width: 30px;
+
+    filter: invert(1);
+    /* tornando os icones brancos para terem um destaque já que a imagem tem cores escuras */
+    transition: 0.3s ease-in-out;
+    /* adicionando uma transição para o efeito do hover, que durara agora 3 segundos e será suave*/
+}
+
+.menu-lateral .icone:hover{
+    /* adicionando um efeito ou transformação para quando o mouse passa pelo icone */
+    transform: scale(1.2);
+    /* aumentando o tamanho do icone quando o mouse passa por ele*/
+}
+
+.carrossel{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width:100%;
+
+    z-index: -1;
+}
+
+.carrossel .img-carrossel{
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    object-fit: cover;
+
+    animation: mudarImagem 0.7s;
+    /* selecionando uma animação chamada mudar imagem e dando uma duração a ela */
+}
+
+.carrossel .img-carrossel.ativa{
+    display: block;
+}
+
+@keyframes mudarImagem{
+    /* criando a animação mudarImagem */
+    from{
+        opacity: 0.85;
+    }to{
+        opacity: 1;
+    }
+    /* aqui indicamos que a animação mudarImagem vai fazer a imagem começar com uma certa opacidade e voltar ao normal dps de(from) opacidade 0.85 para(to) imagem normal opacidade 1 */
+}
